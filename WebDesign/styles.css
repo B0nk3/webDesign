@@ -1,0 +1,13 @@
+
+.stil1{
+    color:cyan;
+    font-size: 4rem;
+}
+.stil2{
+    font-variant: small-caps;
+    font-style: normal;
+}
+p{
+    font-size: 1.5rem;
+    font-style: oblique;
+}
