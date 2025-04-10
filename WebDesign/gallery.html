@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <img src="Images/imagine1.jpg" alt="Imagine 1">
+            <img src="Images/imagine2.jpg" alt="Imagine 2">
+            <img src="Images/imagine3.jpg" alt="Imagine 3">
+            <img src="Images/imagine4.jpg" alt="Imagine 4">
+            <img src="Images/imagine5.jpg" alt="Imagine 5">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">Previous</button>
+        <button class="next" onclick="moveSlide(1)">Next</button>
+    </div>
+    <script>
+        let slideIndex = 0;
+    
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.slides img');
+            slideIndex += step;
+    
+           
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+    
+            
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+    </script>
+</body>
+</html>
