@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular simplu</title>
+</head>
+<body>
+
+    <h2>Formular de contact</h2>
+
+    <form action="/submit" method="post">
+        <label for="nume">Nume:</label><br>
+        <input type="text" id="nume" name="nume" required><br><br>
+        <label for="prenume">Prenume:</label><br>
+        <input type="text" id = "prenume" name = "prenume" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="mesaj">Mesaj:</label><br>
+        <textarea id="mesaj" name="mesaj" rows="4"></textarea><br><br>
+
+        <input type="submit" value="Trimite">
+    </form>
+
+</body>
+</html>
