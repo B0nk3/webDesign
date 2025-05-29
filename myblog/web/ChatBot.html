@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <title>Chatbot Simplu</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    #chat { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; margin-bottom: 10px; }
-    .bot { color: blue; }
-    .user { color: green; }
+    body { 
+      font-family: Arial; 
+      padding: 20px; 
+    }
+    #chat { border: 1px solid #ccc; 
+      padding: 10px; height: 300px; 
+      overflow-y: scroll; 
+      margin-bottom: 10px; 
+    }
+    .bot { 
+      color: blue; 
+    }
+    .user { 
+      color: green; 
+    }
   </style>
 </head>
 <body>
@@ -32,13 +43,11 @@
     function getBotResponse(input) {
       input = input.toLowerCase();
       if (input.includes('salut')) return 'Salut! Cu ce te pot ajuta?';
-      if (input.includes('cum te cheamă')) return 'Sunt un chatbot simplu.';
+      if (input.includes('cum te cheama')) return 'Sunt un chatbot simplu si nu am nume';
       if (input.includes('ce faci')) return 'Încerc să fiu util!';
       if(input.includes("plata")) return 'Poți plăti online cu cardul sau ramburs la livrare.';
-      if(intput.includes(reduceri) || input.includes(reducere)) return 'Da, urmărește-ne pe site și rețelele sociale pentru oferte!';
+      if(input.includes("reduceri") || input.includes("reducere")) return 'Da, urmărește-ne pe site și rețelele sociale pentru oferte!';
       
-
-
       return 'Nu am înțeles. Poți reformula?';
     }
 

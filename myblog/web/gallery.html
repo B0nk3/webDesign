@@ -1,39 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
+    <meta charset="UTF-8" />
     <title>Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial;
+            background: #633292;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+       
+        
+        button.prev, button.next {
+            position: absolute;
+            top: 50%;
+
+            background-color: rgb(2, 2, 2);
+            border: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+    
+        button.prev {
+            left: 10px;
+        }
+        button.next {
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="slider">
         <div class="slides">
-            <img src="Images/imagine1.jpg" alt="Imagine 1">
-            <img src="Images/imagine2.jpg" alt="Imagine 2">
-            <img src="Images/imagine3.jpg" alt="Imagine 3">
-            <img src="Images/imagine4.jpg" alt="Imagine 4">
-            <img src="Images/imagine5.jpg" alt="Imagine 5">
+            <img src="Images/imagine1.jpg" alt="Imagine 1" />
+            <img src="Images/imagine2.jpg" alt="Imagine 2" />
+            <img src="Images/imagine3.jpg" alt="Imagine 3" />
+            <img src="Images/imagine4.jpg" alt="Imagine 4" />
+            <img src="Images/imagine5.jpg" alt="Imagine 5" />
         </div>
-        <button class="prev" onclick="moveSlide(-1)">Previous</button>
-        <button class="next" onclick="moveSlide(1)">Next</button>
+        <button class="prev" onclick="moveSlide(-1)">&#10094; Previous</button>
+        <button class="next" onclick="moveSlide(1)">Next &#10095;</button>
     </div>
     <script>
+        const slideWidth = 600;
         let slideIndex = 0;
-    
+        const slides = document.querySelectorAll('.slides img');
+        const slidesContainer = document.querySelector('.slides');
+
         function moveSlide(step) {
-            const slides = document.querySelectorAll('.slides img');
             slideIndex += step;
-    
-           
-            if (slideIndex >= slides.length) {
-                slideIndex = 0;
-            } else if (slideIndex < 0) {
-                slideIndex = slides.length - 1;
-            }
-    
-            
-            const slidesContainer = document.querySelector('.slides');
-            slidesContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            slidesContainer.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
         }
     </script>
 </body>

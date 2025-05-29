@@ -4,12 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formular simplu</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+    body{
+        background: rgb(8, 191, 204);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: arial;
+    }
+    form {
+        background: white;
+        padding: 40px;
+        margin-top: 50px;
+        border-radius: 10px;
+    }
+    label, input, textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        }
+
+    input[type="submit"] {
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 5px;
+        }
+
+    input[type="submit"]:hover {
+        background-color: #005fa3;
+        }
+
+</style>  
 </head>
 <body>
 
-    <h2>Formular de contact</h2>
+    
 
-    <form action="/submit" method="post">
+    <form onsubmit="resetForm(); return false;">
+        <h2 style = "text-align: center;">Formular de contact</h2>
         <label for="nume">Nume:</label><br>
         <input type="text" id="nume" name="nume" required><br><br>
         <label for="prenume">Prenume:</label><br>
@@ -22,6 +59,12 @@
 
         <input type="submit" value="Trimite">
     </form>
-
+<script>
+function resetForm()
+    {
+        location.reload();
+    }
+</script>
+    
 </body>
 </html>
