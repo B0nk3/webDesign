@@ -4,30 +4,85 @@
   <meta charset="UTF-8">
   <title>Chatbot Simplu</title>
   <style>
-    body { 
-      font-family: Arial; 
-      padding: 20px; 
+    body {
+      font-family: Arial;
+      margin: 0;
+      background-color: #ffffff;
+      color: #333;
     }
-    #chat { border: 1px solid #ccc; 
-      padding: 10px; height: 300px; 
-      overflow-y: scroll; 
-      margin-bottom: 10px; 
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 30px;
+      text-align: center;
     }
-    .bot { 
-      color: blue; 
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
-    .user { 
-      color: green; 
+    #chat {
+      background-color: rgb(207, 223, 221);
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 15px;
+      height: 300px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+    .bot {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+    .user {
+      color: #007700;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+    #userInput {
+      width: 75%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <h2>Chat cu Botul</h2>
-  <div id="chat"></div>
+  <header>
+    <h2>Chat cu Botul</h2>
+    <p>Întreabă-mă orice!</p>
+  </header>
 
-  <input type="text" id="userInput" placeholder="Scrie ceva..." />
-  <button onclick="sendMessage()">Trimite</button>
+  <div class="container">
+    <div id="chat"></div>
+
+    <input type="text" id="userInput" placeholder="Scrie ceva..." />
+    <button onclick="sendMessage()">Trimite</button>
+  </div>
+
+  <footer>
+    &copy; 2025 ChatBot Simplu
+  </footer>
 
   <script>
     const chat = document.getElementById('chat');
@@ -43,12 +98,16 @@
     function getBotResponse(input) {
       input = input.toLowerCase();
       if (input.includes('salut')) return 'Salut! Cu ce te pot ajuta?';
-      if (input.includes('cum te cheama')) return 'Sunt un chatbot simplu si nu am nume';
-      if (input.includes('ce faci')) return 'Încerc să fiu util!';
-      if(input.includes("plata")) return 'Poți plăti online cu cardul sau ramburs la livrare.';
-      if(input.includes("reduceri") || input.includes("reducere")) return 'Da, urmărește-ne pe site și rețelele sociale pentru oferte!';
-      
-      return 'Nu am înțeles. Poți reformula?';
+      if (input.includes('cum te cheama')) return 'Sunt un chatbot simplu si nu am nume.';
+      if (input.includes('ce faci')) return 'Incerc să fiu util!';
+      if (input.includes('cine a castigat campionatul mondial')) return 'Argentina a castigat Campionatul Mondial din 2022.';
+      if (input.includes('cine e cel mai bun jucator')) return 'Multi îl considera pe Cristiano Ronaldo cel mai bun jucator din lume.';
+      if (input.includes('cand joaca romania')) return 'Depinde de competitie. Verifica site-ul oficial al FRF pentru programul actualizat.';
+      if (input.includes('ce echipe sunt în liga 1')) return 'Liga 1 include echipe precum FCSB, CFR Cluj, Universitatea Craiova, Farul Constanta si altele.';
+      if (input.includes('unde pot vedea meciuri')) return 'Meciurile sunt transmise la TV pe Digi Sport, Prima Sport si Orange Sport.';
+      if (input.includes('ce scor a fost la meciul')) return 'Imi pare rau, nu pot accesa scoruri live. Verifica un site sportiv precum flashscore.ro.';
+
+      return 'Nu am inteles. Poti reformula?';
     }
 
     function sendMessage() {
@@ -62,7 +121,6 @@
 
       userInput.value = '';
     }
-
 
     document.getElementById('userInput').addEventListener('keypress', function(e) {
       if (e.key === 'Enter') sendMessage();
